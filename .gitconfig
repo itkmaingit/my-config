@@ -1,0 +1,37 @@
+[core]
+	editor = \"C:\\Users\\itk_m\\AppData\\Local\\Programs\\Microsoft VS Code\\bin\\code\" --wait
+	autocrlf = false
+[user]
+	name = itkmaingit
+	email = itkmain.git@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[merge]
+	ff = false
+[alias]
+	vacuum = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|developed|master|main|develop'|xargs git branch -d; git fetch --prune; };f"
+	ss = status
+	br = branch
+	brm = branch -m
+	brd = branch -d
+	brdd = branch -D
+	sw = switch
+	swc = switch -c
+	adu = add -u
+	adup = add -u -p
+	ada = add -A
+	cm = commit -m
+	cam = commit -am
+	mg = merge --no-ff
+	mgff = merge --ff
+	cp = cherry-pick
+	firstpush = push --set-upstream
+	log1 = log -1
+	log2 = log -2
+	log3 = log -3
+	logo = log --oneline
+	logn = log --name-status --oneline
+	firstcom = commit --allow-empty -m \"Initial commit\"
