@@ -35,3 +35,6 @@
 	logo = log --oneline
 	logn = log --name-status --oneline
 	firstcom = commit --allow-empty -m \"Initial commit\"
+	ph=push
+	cl=clone
+	pl=push
