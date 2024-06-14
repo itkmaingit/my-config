@@ -13,8 +13,7 @@ ARG USERNAME=node
 RUN if ! id "$USERNAME" &>/dev/null; then \
         useradd -m "$USERNAME"; \
     fi
-RUN useradd -m $USERNAME && \
-    echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
+RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME
 
 USER $USERNAME
