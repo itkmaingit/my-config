@@ -1,5 +1,7 @@
 #!/bin/bash
 
+alias g="git"
+
 # ファイルのURL
 file_urls=(
   "https://raw.githubusercontent.com/itkmaingit/my-config/main/.gitconfig"
