@@ -6,12 +6,14 @@ alias g="git"
 file_urls=(
   "https://raw.githubusercontent.com/itkmaingit/my-config/main/.gitconfig"
   "https://raw.githubusercontent.com/itkmaingit/my-config/main/.latexmkrc"
+  "https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash"
   )
 
 # 保存先のファイルパス
 save_paths=(
   "${HOME}/.gitconfig"
   "${HOME}/.latexmkrc"
+  "${HOME}/.git-completion.bash"
   )
 
 # URLと保存先パスの数が一致しているか確認
@@ -31,3 +33,8 @@ for (( i=0; i<$num_files; i++ )); do
     # curlコマンドでファイルを取得し、保存する
     curl -o "$save_path" -fL "$file_url"
 done
+
+# init.shが存在しない場合にコマンドを実行する
+if [ ! -f "$HOME/init.sh" ]; then
+    echo "source ~/.git-completion.bash" >> ~/.bashrc
+fi
