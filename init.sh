@@ -31,7 +31,7 @@ for (( i=0; i<$num_files; i++ )); do
     save_path="${save_paths[$i]}"
 
     # curlコマンドでファイルを取得し、保存する
-    curl -o "$save_path" -fL "$file_url"
+    curl -o "$save_path" -fsL "$file_url"
 done
 
 # init.shが存在しない場合にコマンドを実行する
