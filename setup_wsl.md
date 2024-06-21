@@ -22,39 +22,35 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 ```bash
 sudo apt update
 sudo apt upgrade -y
-sudo apt-get update
-sudo apt-get upgrade -y
-
-sudo apt install -y fzf exa fd-find bat gcc
-sudo apt-get install -y ripgrep
+sudo apt install -y  gcc
 
 #### rust
 curl https://sh.rustup.rs -sSf | sh
+rustup update
 
-#### zoxide
-curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+#### cargo
+cargo install exa fd-find ripgrep navi grex git-delta
+cargo install --locked bat zoxide
 
-#### navi
-cargo install navi
+#### lazygit
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install -y lazygit /usr/local/bin
 
-#### grex
-cargo install grex
-
-#### delta
-cargo install git-delta
-
-#### symbolic link
-mkdir -p ~/.local/bin
-ln -s $(which fdfind) ~/.local/bin/fd
-ln -s $(which fdfind) ~/.local/bin/bat
+#### lazydocker
+curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
 ### settings
-echo 'alias g='git'' >> ~/.bashrc
-echo 'alias ls='ls -l'' >> ~/.bashrc
-echo 'alias ex='exa -l --icons --group-directories-first'' >> ~/.bashrc
-echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
-echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
 echo 'export PATH="$PATH:$HOME/.cargo/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc 
+echo 'alias g="git"' >> ~/.bashrc
+echo 'alias ls="ls -l"' >> ~/.bashrc
+echo 'alias ex="exa -l --icons --group-directories-first"' >> ~/.bashrc
+echo 'alias lg="lazygit"' >> ~/.bashrc
+echo 'alias lzd="lazydocker"' >> ~/.bashrc
+echo 'eval "$(zoxide init bash)"' >> ~/.bashrc
+
 ```
 
 #### lazygit
