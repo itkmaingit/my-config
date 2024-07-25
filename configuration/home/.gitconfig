@@ -25,6 +25,7 @@
     colorMoved = default
 [alias]
 	vacuum = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|developed|master|main|develop'|xargs git branch -d; git fetch --prune; };f"
+	lazy = "!f() { git add -A; git commit -m 'lazy commit'; git push; };f"
 	ss = status
 	br = branch
 	brm = branch -m

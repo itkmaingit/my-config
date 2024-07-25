@@ -14,7 +14,6 @@ dive () {
 
 tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
-
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 alias g='git'
@@ -27,3 +26,5 @@ eval "$(direnv hook bash)"
 . "$HOME/.cargo/env"
 export EDITOR=code
 dns
+bash ~/.config/.settings/scripts/pull.sh
+bash ~/.config/.settings/scripts/push.sh
