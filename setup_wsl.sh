@@ -1,6 +1,7 @@
 #! /bin/bash
 
 ### settings
+cd ~
 mkdir -p ~/.config/lazygit
 rm ~/.bashrc
 rm ~/.gitconfig
