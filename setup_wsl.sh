@@ -25,8 +25,16 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 ### settings
 cat ~/.config/.settings/configuration/.bashrc.bak >> ~/.bashrc
 mkdir -p ~/.config/lazygit
+rm ~/.bashrc
+rm ~/.gitconfig
+rm ~/.latexmkrc
+rm ~/.config/lazygit/config.yml
 ln -s ~/.config/.settings/configuration/home/.bashrc ~/.bashrc
 ln -s ~/.config/.settings/configuration/home/.gitconfig ~/.gitconfig
 ln -s ~/.config/.settings/configuration/home/.latexmkrc ~/.latexmkrc
 ln -s ~/.config/.settings/configuration/lazygit/config.yml ~/.config/lazygit/config.yml
 sh ~/.config/.settings/scripts/setup_cron.sh
+
+### root settings
+sudo rm /etc/wsl.conf
+sudo ln -s ~/.config/.settings/configuration/root/wsl.conf /etc/wsl.conf
