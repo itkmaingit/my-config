@@ -139,7 +139,6 @@ alias g='git'
 alias ex='exa -l --icons --group-directories-first'
 alias lg='lazygit'
 alias lzd='lazydocker'
-alias bat='/home/dango/.cargo/bin/bat'
 alias reload='source ~/.bashrc'
 eval "$(zoxide init bash)"
 . "$HOME/.cargo/env"
