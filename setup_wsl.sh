@@ -21,7 +21,7 @@ source ~/.bashrc
 #### init
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y  gcc cron curl
+sudo apt install -y  gcc cron curl libsqlite3-dev libpq-dev libmysqlclient-dev
 
 #### rust
 curl https://sh.rustup.rs -sSf | sh
