@@ -3,7 +3,7 @@
 #### init
 sudo apt update
 sudo apt upgrade -y
-sudo apt install -y  gcc cron
+sudo apt install -y  gcc cron curl
 
 #### rust
 curl https://sh.rustup.rs -sSf | sh
@@ -23,7 +23,6 @@ sudo install -y lazygit /usr/local/bin
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
 
 ### settings
-cat ~/.config/.settings/configuration/.bashrc.bak >> ~/.bashrc
 mkdir -p ~/.config/lazygit
 rm ~/.bashrc
 rm ~/.gitconfig
