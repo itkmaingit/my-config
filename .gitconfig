@@ -5,9 +5,6 @@
 [user]
 	name = itkmaingit
 	email = itkmain.git@gmail.com
-[url "github:"]
-    InsteadOf = https://github.com/
-    InsteadOf = git@github.com:
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -37,6 +34,7 @@
 	swc = switch -c
 	adu = add -u
 	adup = add -u -p
+	adp = add -p
 	ada = add -A
 	cm = commit -m
 	cam = commit -am
@@ -47,14 +45,16 @@
 	log1 = log -1
 	log2 = log -2
 	log3 = log -3
+	logp = log -p
 	logo = log --oneline
 	logn = log --name-status --oneline
 	firstcom = commit --allow-empty -m \"Initial commit\"
 	ph=push
 	cl=clone
-	pl=push
+	pl=pull
 	st = stash
 	stp = stash pop
 	stl = stash list
 	stps = stash pop "stash@{0}"
 	co = checkout
+	cancel = reset --soft HEAD^
