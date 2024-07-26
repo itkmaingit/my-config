@@ -26,15 +26,13 @@ git clone git@github.com:itkmaingit/my-config.git ~/.config/unq
 
 # basic settings
 mkdir -p ~/.config/lazygit
-rm -f ~/.bashrc
-rm -f ~/.gitconfig
-rm -f ~/.latexmkrc
-rm -f ~/.config/lazygit/config.yml
+rm -f ~/.bashrc ~/.gitconfig ~/.latexmkrc ~/.config/lazygit/config.yml
 ln -s ~/.config/unq/configuration/home/.bashrc ~/.bashrc
 ln -s ~/.config/unq/configuration/home/.gitconfig ~/.gitconfig
 ln -s ~/.config/unq/configuration/home/.latexmkrc ~/.latexmkrc
 ln -s ~/.config/unq/configuration/lazygit/config.yml ~/.config/lazygit/config.yml
 sh ~/.config/unq/scripts/setup_cron.sh
+sudo chmod +x ~/.config/unq/scripts/synchronization.sh
 
 ### root settings
 sudo rm -f /etc/wsl.conf
@@ -66,6 +64,7 @@ curl -sfL https://direnv.net/install.sh | bash
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
 tar xf lazygit.tar.gz lazygit
+rm -f lazygit.tar.gz lazygit
 sudo install  lazygit /usr/local/bin
 
 #### lazydocker
