@@ -17,17 +17,12 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [navi](https://github.com/denisidoro/navi)
 - [grex](https://github.com/pemistahl/grex)
 - [tre](https://github.com/dduan/tre)
+- [mcfly](https://github.com/cantino/mcfly)
 
 ## installation
 
 以下コマンドを実行する。
 
 ```bash
-ssh-keygen -t ed25519 -C WSL -f ~/.ssh/github
-cat ~/.ssh/github.pub # -> register to github
-echo -e "Host github.com\n  HostName github.com\n  IdentityFile ~/.ssh/github #ここに自分の鍵のファイル名\n  User git\n  IdentitiesOnly yes" >> ~/.ssh/config
-echo "$(whoami)   ALL=(ALL:ALL)   NOPASSWD:       ALL" | sudo tee -a /etc/sudoers > /dev/null
-mkdir -p ~/.config/.settings
-git clone git@github.com:itkmaingit/my-config.git ~/.config/.settings
-sh ~/.config/.settings/setup_wsl.sh
+curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_wsl.sh | sh
 ```

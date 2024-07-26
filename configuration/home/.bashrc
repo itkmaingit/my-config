@@ -57,7 +57,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u:\[\033[01;34m\]\w\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -116,6 +116,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
+if [ -f ~/.git-completion.sh ]; then
+    source ~/.git-completion.sh
+fi
+if [ -f ~/.git-prompt.sh ]; then
+    source ~/.git-prompt.sh
+fi
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUPSTREAM=auto
+PS1='[\[\033[1;32m\]\u:\[\033[34m\]\w\[\033[1;36m\]$(__git_ps1 " (%s)")\[\033[00m\]]\n\$ '
+
 dns () {
     sudo rm /etc/resolv.conf
     sudo sh -c "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
@@ -141,6 +153,8 @@ alias lg='lazygit'
 alias lzd='lazydocker'
 alias reload='source ~/.bashrc'
 eval "$(zoxide init bash)"
+eval "$(gh completion -s bash)"
+eval "$(mcfly init bash)"
 . "$HOME/.cargo/env"
 export EDITOR=code
 dns
