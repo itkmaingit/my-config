@@ -35,6 +35,7 @@ ln -s ~/.config/unq/configuration/home/.gitconfig ~/.gitconfig
 ln -s ~/.config/unq/configuration/home/.latexmkrc ~/.latexmkrc
 ln -s ~/.config/unq/configuration/lazygit/config.yml ~/.config/lazygit/config.yml
 sh ~/.config/unq/scripts/setup_cron.sh
+sudo chmod +x ~/.config/unq/scripts/synchronization.sh
 
 ### root settings
 sudo rm -f /etc/wsl.conf
