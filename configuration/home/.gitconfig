@@ -3,7 +3,7 @@
 	autocrlf = false
 	pager = delta
 [user]
-	name = itkmaingit
+	name = dango
 	email = itkmain.git@gmail.com
 [filter "lfs"]
 	clean = git-lfs clean -- %f
