@@ -15,6 +15,7 @@ sudo apt update \
 && export BROWSER="/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" \
 && echo $BROWSER \
 && gh auth login
+&& echo -e "Host github.com\n  HostName github.com\n  IdentityFile ~/.ssh/github #ここに自分の鍵のファイル名\n  User git\n  IdentitiesOnly yes" > ~/.ssh/config
 
 # No passworld for sudo
 echo "$(whoami)   ALL=(ALL:ALL)   NOPASSWD:       ALL" | sudo tee -a /etc/sudoers > /dev/null
@@ -57,6 +58,9 @@ cargo install --locked bat zoxide
 
 #### mcfly
 curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly
+
+#### direnv
+curl -sfL https://direnv.net/install.sh | bash
 
 #### lazygit
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')

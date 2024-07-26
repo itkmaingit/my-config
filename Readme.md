@@ -18,6 +18,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [grex](https://github.com/pemistahl/grex)
 - [tre](https://github.com/dduan/tre)
 - [mcfly](https://github.com/cantino/mcfly)
+- [direnv](https://github.com/direnv/direnv/tree/master)
 
 ## installation
 
