@@ -159,4 +159,3 @@ eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
 eval "$(mcfly init bash)"
 eval "$(direnv hook bash)"
-sh -c ~/.config/unq/scripts/synchronization.sh
