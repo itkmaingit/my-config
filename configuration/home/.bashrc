@@ -148,13 +148,13 @@ tre() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 dns
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export EDITOR=code
 alias g='git'
 alias ex='exa -l --icons --group-directories-first'
 alias lg='lazygit'
 alias lzd='lazydocker'
 alias reload='source ~/.bashrc'
 . "$HOME/.cargo/env"
-export EDITOR=code
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
 eval "$(mcfly init bash)"

@@ -2,6 +2,6 @@
 
 # 30分ごとに実行
 
-cd ~/.config/.settings
+cd ~/.config/unq
 git pull
 git lazy
