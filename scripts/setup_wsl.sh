@@ -21,8 +21,8 @@ sudo apt update \
 echo "$(whoami)   ALL=(ALL:ALL)   NOPASSWD:       ALL" | sudo tee -a /etc/sudoers > /dev/null
 
 # donwload settings repository
-mkdir -p ~/.config/.settings
-git clone git@github.com:itkmaingit/my-config.git ~/.config/.settings
+mkdir -p ~/.config/unq
+git clone git@github.com:itkmaingit/my-config.git ~/.config/unq
 
 # basic settings
 mkdir -p ~/.config/lazygit
@@ -30,15 +30,15 @@ rm -f ~/.bashrc
 rm -f ~/.gitconfig
 rm -f ~/.latexmkrc
 rm -f ~/.config/lazygit/config.yml
-ln -s ~/.config/.settings/configuration/home/.bashrc ~/.bashrc
-ln -s ~/.config/.settings/configuration/home/.gitconfig ~/.gitconfig
-ln -s ~/.config/.settings/configuration/home/.latexmkrc ~/.latexmkrc
-ln -s ~/.config/.settings/configuration/lazygit/config.yml ~/.config/lazygit/config.yml
-sh ~/.config/.settings/scripts/setup_cron.sh
+ln -s ~/.config/unq/configuration/home/.bashrc ~/.bashrc
+ln -s ~/.config/unq/configuration/home/.gitconfig ~/.gitconfig
+ln -s ~/.config/unq/configuration/home/.latexmkrc ~/.latexmkrc
+ln -s ~/.config/unq/configuration/lazygit/config.yml ~/.config/lazygit/config.yml
+sh ~/.config/unq/scripts/setup_cron.sh
 
 ### root settings
 sudo rm -f /etc/wsl.conf
-sudo ln -s ~/.config/.settings/configuration/root/wsl.conf /etc/wsl.conf
+sudo ln -s ~/.config/unq/configuration/root/wsl.conf /etc/wsl.conf
 source ~/.bashrc
 
 #### git-completion.sh & git-prompt.sh
