@@ -14,7 +14,7 @@ sudo apt update \
 && sudo apt install gh -y \
 && export BROWSER="/mnt/c/Program Files/Google/Chrome/Application/chrome.exe" \
 && echo $BROWSER \
-&& gh auth login　\
+&& gh auth login \
 && echo -e "Host github.com\n  HostName github.com\n  IdentityFile ~/.ssh/github #ここに自分の鍵のファイル名\n  User git\n  IdentitiesOnly yes" > ~/.ssh/config
 
 # No passworld for sudo
