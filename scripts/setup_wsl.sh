@@ -70,3 +70,8 @@ sudo install  lazygit /usr/local/bin
 
 #### lazydocker
 curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/install_update_linux.sh | bash
+
+#### speedtest
+wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+sudo mv speedtest-cli /usr/bin/speedtest
+sudo chmod +x /usr/bin/speedtest
