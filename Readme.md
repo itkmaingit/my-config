@@ -4,6 +4,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 
 以下ライブラリをインストールするようになっている。また、レシピファイルなどの初期設定を行う。
 
+- [GitHub CLI](https://github.com/cli/cli)
 - [fzf](https://github.com/junegunn/fzf)
 - [exa](https://github.com/ogham/exa)
 - [fd-find(fd)](https://github.com/sharkdp/fd)
@@ -19,6 +20,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [tre](https://github.com/dduan/tre)
 - [mcfly](https://github.com/cantino/mcfly)
 - [direnv](https://github.com/direnv/direnv/tree/master)
+- [speedtest-cli](https://www.speedtest.net/apps/cli)
 
 ## installation
 
