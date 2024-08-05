@@ -26,7 +26,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_git.sh | sh
-echo -e "\n\n### input example ### \n\n \e[32m?\e[m What account do you want to log into? ->\e[36m GitHub.com\e[m\n\e[32m?\e[m What is your preferred protocol for Git operations? -> \e[36mSSH\e[m\n\e[32m?\e[m Generate a new SSH key to add to your GitHub account? -> \e[36mYes\e[m\n\e[32m?\e[m Enter a passphrase for your new SSH key -> (Enter) \n\e[32m?\e[m How would you like to authenticate GitHub CLI? -> \e[36mLogin with a web browser\e[m\n\n"
+echo -e "\n\n### input example ### \n\n\e[32m?\e[m What account do you want to log into? ->\e[36m GitHub.com\e[m\n\e[32m?\e[m What is your preferred protocol for Git operations? -> \e[36mSSH\e[m\n\e[32m?\e[m Generate a new SSH key to add to your GitHub account? -> \e[36mYes\e[m\n\e[32m?\e[m Enter a passphrase for your new SSH key -> (Enter) \n\e[32m?\e[m How would you like to authenticate GitHub CLI? -> \e[36mLogin with a web browser\e[m\n\n"
 gh auth login
 curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_wsl.sh | sh
 ```
