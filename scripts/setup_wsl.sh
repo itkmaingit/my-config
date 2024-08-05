@@ -25,7 +25,7 @@ sudo chmod +x ~/.config/unq/scripts/synchronization.sh
 ### root settings
 sudo rm -f /etc/wsl.conf
 sudo ln -s ~/.config/unq/configuration/root/wsl.conf /etc/wsl.conf
-source ~/.bashrc
+. ~/.bashrc
 
 #### git-completion.sh & git-prompt.sh
 curl -o .git-completion.sh \
