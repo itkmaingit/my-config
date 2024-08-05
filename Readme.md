@@ -32,3 +32,14 @@ echo -e "\n\n### input example ### \n\n\e[32m?\e[m What account do you want to l
 gh auth login
 curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_wsl.sh | sh
 ```
+
+## DNS Reset
+
+DNSの`resolv.conf`を書き換えてしまった場合、以下コマンドを実行する。
+
+```bash
+cd /etc
+sudo rm resolv.conf
+sudo ln -s ../run/resolvconf/resolv.conf resolv.conf
+sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
+```
