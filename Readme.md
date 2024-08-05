@@ -33,13 +33,3 @@ gh auth login
 curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_wsl.sh | sh
 source ~/.bashrc
 ```
-
-## DNS Reset
-
-DNSの`resolv.conf`を書き換えてしまった場合、以下コマンドを実行する。
-
-```bash
-sudo rm /etc/resolv.conf
-sudo ln -s /mnt/wsl/resolv.conf /etc/resolv.conf
-sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
-```

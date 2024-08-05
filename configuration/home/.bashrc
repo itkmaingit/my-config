@@ -137,6 +137,17 @@ dive () {
     docker container exec -it $1 /bin/bash
 }
 
+dns () {
+    sudo rm /etc/resolv.conf
+    sudo sh -c "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
+}
+
+dns_reset () {
+    sudo rm /etc/resolv.conf
+    sudo ln -s /mnt/wsl/resolv.conf /etc/resolv.conf
+    sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
+}
+
 tren() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 export PATH="$PATH:$HOME/.local/bin"
