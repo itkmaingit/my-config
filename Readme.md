@@ -25,5 +25,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 以下コマンドを実行する。
 
 ```bash
+curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_git.sh | sh
+gh auth login # GitHub.com -> SSH -> y -> (Enter) -> Login with a web browser
 curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_wsl.sh | sh
 ```
