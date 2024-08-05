@@ -39,8 +39,7 @@ source ~/.bashrc
 DNSの`resolv.conf`を書き換えてしまった場合、以下コマンドを実行する。
 
 ```bash
-cd /etc
-sudo rm resolv.conf
-sudo ln -s ../run/resolvconf/resolv.conf resolv.conf
+sudo rm /etc/resolv.conf
+sudo ln -s /mnt/wsl/resolv.conf /etc/resolv.conf
 sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
 ```
