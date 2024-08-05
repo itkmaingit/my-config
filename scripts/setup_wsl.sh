@@ -23,9 +23,8 @@ sh ~/.config/unq/scripts/setup_cron.sh
 sudo chmod +x ~/.config/unq/scripts/synchronization.sh
 
 ### root settings
-sudo rm -f /etc/wsl.conf /etc/resolv.conf
+sudo rm -f /etc/wsl.conf
 sudo ln -s ~/.config/unq/configuration/root/wsl.conf /etc/wsl.conf
-sudo ln -s ~/.config/unq/configuration/root/resolv.conf /etc/resolv.conf
 source ~/.bashrc
 
 #### git-completion.sh & git-prompt.sh
