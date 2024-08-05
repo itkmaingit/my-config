@@ -22,7 +22,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [direnv](https://github.com/direnv/direnv/tree/master)
 - [speedtest-cli](https://www.speedtest.net/apps/cli)
 
-## installation
+## installation(WSL)
 
 以下コマンドを実行する。
 
@@ -32,4 +32,12 @@ echo -e "\n\n### input example ### \n\n\e[32m?\e[m What account do you want to l
 gh auth login
 curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_wsl.sh | sh
 source ~/.bashrc
+```
+
+## installation(Win11)
+
+Powershellを管理者権限で実行し、以下コマンドを実行する。
+```powershell
+Set-ExecutionPolicy RemoteSigned
+Invoke-Expression (Invoke-WebRequest -Uri https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_win11.ps1).Content
 ```
