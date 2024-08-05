@@ -128,11 +128,6 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREAM=auto
 PS1='[\[\033[1;32m\]\u:\[\033[34m\]\w\[\033[1;36m\]$(__git_ps1 " (%s)")\[\033[00m\]]\n\$ '
 
-dns () {
-    sudo rm /etc/resolv.conf
-    sudo sh -c "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
-}
-
 vpn () {
     sudo ip link set eth0 mtu 1200
 }
@@ -144,8 +139,6 @@ dive () {
 
 tren() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
-
-dns
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export EDITOR=code
