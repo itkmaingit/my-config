@@ -3,7 +3,7 @@
 ### working at home directory
 cd ~
 
-echo -e "Host github.com\n  HostName github.com\n  IdentityFile ~/.ssh/id_ed25519.pub #ここに自分の鍵のファイル名\n  User git\n  IdentitiesOnly yes" > ~/.ssh/config
+printf "Host github.com\n  HostName github.com\n  IdentityFile ~/.ssh/id_ed25519.pub #ここに自分の鍵のファイル名\n  User git\n  IdentitiesOnly yes" > ~/.ssh/config
 
 # No passworld for sudo
 echo "$(whoami)   ALL=(ALL:ALL)   NOPASSWD:       ALL" | sudo tee -a /etc/sudoers > /dev/null
