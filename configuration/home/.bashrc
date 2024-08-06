@@ -4,8 +4,8 @@
 
 # If not running interactively, don't do anything
 case $- in
-    *i*) ;;
-      *) return;;
+*i*) ;;
+*) return ;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -37,7 +37,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
+xterm-color | *-256color) color_prompt=yes ;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
@@ -47,12 +47,12 @@ esac
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-	# We have color support; assume it's compliant with Ecma-48
-	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
+        # We have color support; assume it's compliant with Ecma-48
+        # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+        # a case would tend to support setf rather than setaf.)
+        color_prompt=yes
     else
-	color_prompt=
+        color_prompt=
     fi
 fi
 
@@ -65,11 +65,10 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
+xterm* | rxvt*)
     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
     ;;
-*)
-    ;;
+*) ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -109,11 +108,11 @@ fi
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
 if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
 
 if [ -f ~/.git-completion.sh ]; then
@@ -122,27 +121,40 @@ fi
 if [ -f ~/.git-prompt.sh ]; then
     source ~/.git-prompt.sh
 fi
+
+# Function to set the color of git prompt
+git_color() {
+    local git_info="$(__git_ps1 "%s")"
+    if [[ $git_info == *"%*" ]] || [[ $git_info == *"**"* ]]; then
+        echo -e '\033[1;31m' # red
+    elif [[ $git_info == *"+"* ]]; then
+        echo -e '\033[1;35m' # green
+    else
+        echo -e '\033[1;36m' # cyan
+    fi
+}
+
+# addされていない変更を「*」commitされていない変更を「+」で示す
 GIT_PS1_SHOWDIRTYSTATE=true
+# addされていない新規ファイルの存在を「%」で示す
 GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWSTASHSTATE=true
+# stashがある場合は「$」で示す
+unset GIT_PS1_SHOWSTASHSTATE
+# upstreamと同期「=」進んでいる「>」遅れている「<」で示す
 GIT_PS1_SHOWUPSTREAM=auto
-PS1='[\[\033[1;32m\]\u:\[\033[34m\]\w\[\033[1;36m\]$(__git_ps1 " (%s)")\[\033[00m\]]\n\$ '
 
-vpn () {
-    sudo ip link set eth0 mtu 1200
-}
-
+PS1='\n\[\033[1;32m\]\w\[\033[0m\] \[\033[0;33m\]$(__git_ps1 "[ ")\[\033[0m\]$(git_color)$(__git_ps1 "%s")\[\033[0m\]\[\033[0;33m\]$(__git_ps1 " ]")\[\033[0m\]\n\$ '
 # dive <container-name>
-dive () {
-    docker container exec -it $1 /bin/bash
+dive() {
+    docker container exec -it $1 /bin/sh
 }
 
-dns () {
+dns() {
     sudo rm /etc/resolv.conf
     sudo sh -c "echo 'nameserver 8.8.8.8' > /etc/resolv.conf"
 }
 
-dns_reset () {
+dns_reset() {
     sudo rm /etc/resolv.conf
     sudo ln -s /mnt/wsl/resolv.conf /etc/resolv.conf
     sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
@@ -158,6 +170,8 @@ alias ex='exa -l --icons --group-directories-first'
 alias lg='lazygit'
 alias lzd='lazydocker'
 alias reload='source ~/.bashrc'
+alias vpn='sudo ip link set eth0 mtu 1200'
+alias mem-cl='sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
