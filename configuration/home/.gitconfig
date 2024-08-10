@@ -18,6 +18,8 @@
     # light = true
 [interactive]
     diffFilter = delta --color-only
+[pull]
+	rebase = true
 [merge]
 	ff = false
 	conflictstyle = diff3
