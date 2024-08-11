@@ -59,6 +59,7 @@
 	stp = stash pop
 	stl = stash list
 	stps = stash pop "stash@{0}"
+	su = stash -u
 	co = checkout
 	cancel = reset --soft HEAD^
 	fh = fetch
