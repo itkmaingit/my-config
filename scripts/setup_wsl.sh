@@ -63,3 +63,12 @@ curl https://raw.githubusercontent.com/jesseduffield/lazydocker/master/scripts/i
 wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
 sudo mv speedtest-cli /usr/bin/speedtest
 sudo chmod +x /usr/bin/speedtest
+
+#### node & yarn
+sudo npm install -g n
+sudo n lts
+sudo apt purge -y nodejs npm
+sudo apt autoremove -y
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt install yarn -y
