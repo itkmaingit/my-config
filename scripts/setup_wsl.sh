@@ -75,3 +75,7 @@ sudo apt install yarn -y
 
 #### thefuck
 pip3 install thefuck --user
+
+#### micro
+curl https://getmic.ro | bash
+sudo mv micro $HOME/.local/bin/micro
