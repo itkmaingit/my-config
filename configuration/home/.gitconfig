@@ -18,8 +18,6 @@
     # light = true
 [interactive]
     diffFilter = delta --color-only
-[pull]
-	rebase = true
 [merge]
 	ff = false
 	conflictstyle = diff3
@@ -64,3 +62,5 @@
 	co = checkout
 	cancel = reset --soft HEAD^
 	fh = fetch
+[pull]
+	rebase = true
