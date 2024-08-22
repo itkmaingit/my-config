@@ -172,6 +172,7 @@ alias lzd='lazydocker'
 alias reload='source ~/.bashrc'
 alias vpn='sudo ip link set eth0 mtu 1200'
 alias mem-cl='sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
+alias k='kubectl'
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
