@@ -26,6 +26,7 @@
 [alias]
 	vacuum = "!f () { git checkout $1; git branch --merged|egrep -v '\\*|developed|master|main|develop'|xargs git branch -d; git fetch --prune; };f"
 	lazy = "!f() { git add -A; git commit -m 'lazy commit'; git push; };f"
+	clean = "!f() { git checkout .; git clean -df .; };f"
 	ss = status -s
 	br = branch
 	brm = branch -m
@@ -57,6 +58,9 @@
 	stp = stash pop
 	stl = stash list
 	stps = stash pop "stash@{0}"
+	su = stash -u
 	co = checkout
 	cancel = reset --soft HEAD^
 	fh = fetch
+[pull]
+	rebase = true

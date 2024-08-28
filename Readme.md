@@ -1,6 +1,6 @@
 # Overview
 
-WSLが消えた時用にライブラリインストールの方法をまとめておく
+WSLが消えた時用にライブラリインストールの方法をまとめておく。Windows 11の初期セットアップのスクリプトも同梱されているが、WSL環境上で実行されることはない。
 
 以下ライブラリをインストールするようになっている。また、レシピファイルなどの初期設定を行う。
 
@@ -22,7 +22,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [direnv](https://github.com/direnv/direnv/tree/master)
 - [speedtest-cli](https://www.speedtest.net/apps/cli)
 
-## installation
+## installation(WSL)
 
 以下コマンドを実行する。
 
@@ -34,12 +34,10 @@ curl -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/s
 source ~/.bashrc
 ```
 
-## DNS Reset
+## installation(Win11)
 
-DNSの`resolv.conf`を書き換えてしまった場合、以下コマンドを実行する。
-
-```bash
-sudo rm /etc/resolv.conf
-sudo ln -s /mnt/wsl/resolv.conf /etc/resolv.conf
-sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
+Powershellを管理者権限で実行し、以下コマンドを実行する。
+```powershell
+Set-ExecutionPolicy RemoteSigned
+Invoke-Expression (Invoke-WebRequest -Uri https://raw.githubusercontent.com/itkmaingit/my-config/main/scripts/setup_win11.ps1).Content
 ```
