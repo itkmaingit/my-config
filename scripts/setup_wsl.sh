@@ -47,6 +47,7 @@ cargo install --locked bat zoxide
 curl -LSfs https://raw.githubusercontent.com/cantino/mcfly/master/ci/install.sh | sudo sh -s -- --git cantino/mcfly
 
 #### direnv
+export bin_path=~/.local/bin
 curl -sfL https://direnv.net/install.sh | bash
 
 #### lazygit
