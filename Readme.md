@@ -21,6 +21,7 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [mcfly](https://github.com/cantino/mcfly)
 - [direnv](https://github.com/direnv/direnv/tree/master)
 - [speedtest-cli](https://www.speedtest.net/apps/cli)
+- [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
 
 ## installation(WSL)
 
