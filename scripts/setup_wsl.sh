@@ -81,5 +81,8 @@ pip3 install thefuck --user
 curl https://getmic.ro | bash
 sudo mv micro $HOME/.local/bin/micro
 
+#### gitmoji-cli
+sudo npm i -g gitmoji-cli
+
 #### pyenv
 curl https://pyenv.run | bash
