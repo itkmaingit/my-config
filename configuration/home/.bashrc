@@ -124,13 +124,25 @@ fi
 
 # Function to set the color of git prompt
 git_color() {
-    local git_info="$(__git_ps1 "%s")"
-    if [[ $git_info == *"%*" ]] || [[ $git_info == *"**"* ]]; then
-        echo -e '\033[1;31m' # red
-    elif [[ $git_info == *"+"* ]]; then
-        echo -e '\033[1;35m' # green
+    # git_statusに__git_ps1の出力を格納
+    local git_status="$(__git_ps1 "%s")"
+    # 変更したファイルのみが存在する（ステージングエリアのみ）
+    if [[ $git_status == *"+"* ]] && [[ $git_status != *"%"* ]] && [[ $git_status != "*"* ]]; then
+        echo -e '\033[1;32m'
+
+    # 変更したファイルのみが存在する（ステージングエリアとワーキングディレクトリに混在）
+    elif [[ $git_status == *"*"* ]] && [[ $git_status == *"+"* ]]; then
+        echo -e '\033[1;35m'
+
+    # 変更したファイルのみが存在する（ワーキングディレクトリのみ）
+    elif [[ $git_status == *"*"* ]] && [[ $git_status != *"+"* ]]; then
+        echo -e '\033[1;33m'
+
+    elif [[ $git_status == *"%"* ]]; then
+        echo -e '\033[1;37m'
+
     else
-        echo -e '\033[1;36m' # cyan
+        echo -e '\033[1;36m'
     fi
 }
 
@@ -164,15 +176,18 @@ tren() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:/usr/local/bin"
 export EDITOR=code
 alias g='git'
+alias k='kubectl'
 alias ex='exa -l --icons --group-directories-first'
 alias lg='lazygit'
 alias lzd='lazydocker'
 alias reload='source ~/.bashrc'
 alias vpn='sudo ip link set eth0 mtu 1200'
 alias mem-cl='sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
-alias k='kubectl'
+alias dc='docker compose'
+alias d='docker'
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
