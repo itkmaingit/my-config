@@ -189,6 +189,7 @@ alias mem-cl='sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
 alias dc='docker compose'
 alias d='docker'
 alias gm='gitmoji'
+alias gc='gitmoji -c'
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
