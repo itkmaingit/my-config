@@ -188,6 +188,7 @@ alias vpn='sudo ip link set eth0 mtu 1200'
 alias mem-cl='sudo sh -c "/usr/bin/echo 3 > /proc/sys/vm/drop_caches"'
 alias dc='docker compose'
 alias d='docker'
+alias gm='gitmoji'
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
