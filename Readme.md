@@ -22,6 +22,8 @@ WSLが消えた時用にライブラリインストールの方法をまとめ�
 - [direnv](https://github.com/direnv/direnv/tree/master)
 - [speedtest-cli](https://www.speedtest.net/apps/cli)
 - [gitmoji-cli](https://github.com/carloscuesta/gitmoji-cli)
+- [Taskfile](https://taskfile.dev/)
+- [pyenv](https://github.com/pyenv/pyenv)
 
 ## installation(WSL)
 
