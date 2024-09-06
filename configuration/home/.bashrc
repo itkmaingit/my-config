@@ -174,13 +174,18 @@ dns_reset() {
 
 tren() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
+mz () {
+    mkdir -p $1
+    z $1
+}
+
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/bin"
 export EDITOR=code
 alias g='git'
 alias k='kubectl'
-alias ex='exa -l --icons --group-directories-first'
+alias l='exa -l --icons --group-directories-first'
 alias lg='lazygit'
 alias lzd='lazydocker'
 alias reload='source ~/.bashrc'
