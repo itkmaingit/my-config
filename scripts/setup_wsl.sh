@@ -40,7 +40,7 @@ curl https://sh.rustup.rs -sSf | sh
 rustup update
 
 #### cargo
-cargo install exa fd-find ripgrep navi grex git-delta tre
+cargo install exa fd-find ripgrep navi grex git-delta tre-command
 cargo install --locked bat zoxide
 
 #### mcfly
