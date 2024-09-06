@@ -1,22 +1,12 @@
 ## Overview
 
-This is a directory containing script and configuration files for initial configuration within the virtual environment (Ubuntu).
+Dockerfileを使用する際に、頻出する操作を記述しておく。
 
-Due to problems with embedding Authorisation tokens, the repository is public. **Do not store recipe or config files containing sensitive information in this repository.**
-
-## Setup
-
-The following single sentence should be included in the Dockerfile.
-
-```Dockerfile
+### sudo userのセットアップ
+```
 ARG USERNAME=node
-RUN if ! id "$USERNAME" &>/dev/null; then \
-        useradd -m "$USERNAME"; \
-    fi
-RUN echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
-    chmod 0440 /etc/sudoers.d/$USERNAME
-
-USER $USERNAME
-RUN curl -o /home/node/init.sh -fsSL https://raw.githubusercontent.com/itkmaingit/my-config/main/docker/init.sh
-RUN echo 'bash $HOME/init.sh' >> /home/$USERNAME/.bashrc
+RUN apt update && \
+    apt upgrade -y && \
+    apt install -y sudo curl bash && \
+    curl -sSfL https://raw.githubusercontent.com/itkmaingit/my-config/main/docker/setup_user.sh | bash -s $USERNAME
 ```
