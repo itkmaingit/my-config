@@ -179,6 +179,14 @@ mz () {
     z $1
 }
 
+repeat (){
+  local n=$1
+  shift
+  for ((i = 0; i < n; i++)); do
+    "$@"
+  done
+}
+
 export PATH="$PATH:$HOME/.local/bin"
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/usr/local/bin"
