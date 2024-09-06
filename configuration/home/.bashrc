@@ -172,7 +172,7 @@ dns_reset() {
     sudo sh -c "printf '[boot]\nsystemd=true' > /etc/wsl.conf"
 }
 
-tren() { command tre "$@" -e && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
+tren() { command tre "$@" && source "/tmp/tre_aliases_$USER" 2>/dev/null; }
 
 mz () {
     mkdir -p $1
