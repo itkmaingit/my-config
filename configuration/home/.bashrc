@@ -203,6 +203,7 @@ alias dc='docker compose'
 alias d='docker'
 alias gm='gitmoji'
 alias gc='gitmoji -c'
+alias git-per="find . -user root | xargs sudo chown $USER:$USER"
 . "$HOME/.cargo/env"
 eval "$(zoxide init bash)"
 eval "$(gh completion -s bash)"
