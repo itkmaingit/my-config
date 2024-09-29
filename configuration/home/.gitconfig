@@ -2,6 +2,7 @@
 	editor = \"code\" --wait
 	autocrlf = false
 	pager = delta
+	filemode = false
 [user]
 	name = dango
 	email = itkmain.git@gmail.com
